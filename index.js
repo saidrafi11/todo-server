@@ -90,6 +90,14 @@ async function run() {
         res.send(result)
       }
       )
+      app.delete('/deletecompleatedtask/:id', async(req, res) =>{
+        const id = req.params.id;
+        const query = { _id: id}
+        const result = await allCompleatedTasks.deleteOne(query);
+        console.log('trying to delete', id)
+        res.send(result)
+      }
+      )
 
     //   app.put('/addcomment/:id', async (req, res) => {
     //     const id = req.params.id;
